@@ -164,12 +164,19 @@ A, B, C form a triangle, so at least 3 colors are needed. The coloring above use
  
 > **Strategy name:**
 ```
-[YOUR ANSWER HERE]
+Graph Coloring
 ```
  
 > **Strategy description:**
 ```
-[YOUR ANSWER HERE]
+The Greedy Graph Coloring algorithm colors the vertices of an undirected graph one at a time, following a predetermined vertex order. At each step, it assigns the smallest available color that has not been already assigned to any previously colored neighbor of the current vertex.
+
+Step 1: Choose an order in which the vertices will be processed.
+Step 2: Start with the first vertex and assign it color 1.
+Step 3: For each subsequent vertex, examine its already-colored neighbors.
+Step 4: Identify the colors that are unavailable because they are used by those neighbors.
+Step 5: Assign the smallest positive integer color that is not available.
+Step 6: Continue until every vertex has been colored.
 ```
  
 #### 2.1.2 Example
@@ -235,7 +242,13 @@ A, B, C form a triangle, so at least 3 colors are needed. The coloring above use
 > **Warning.** Your answer must not contain any line that starts with three backticks. If you copy code from a website or an AI tool, delete such lines (they usually appear just before and just after the code).
  
 ```
-[YOUR ANSWER HERE]
+GREEDY( G , ordered):
+ for each vertex v in ordered:
+  used ← { c[u] : u ∈ N(v), u already colored}
+  c ← 1
+  while c used: c ← c+1
+  c[v] ← c
+ return c
 ```
  
 #### 2.1.5 Algorithm Implementation
@@ -252,22 +265,22 @@ A, B, C form a triangle, so at least 3 colors are needed. The coloring above use
  
 > **Best-case complexity (Big-O expression only, for example `O(n log n)`):**
 ```
-[YOUR ANSWER HERE]
+O(n + m)
 ```
  
 > **Best case: the kind of input that causes it, and the justification:**
 ```
-[YOUR ANSWER HERE]
+Occurs when the graph is sparse  and each vertex has relatively few neighbors.
 ```
  
 > **Worst-case complexity (Big-O expression only, for example `O(n log n)`):**
 ```
-[YOUR ANSWER HERE]
+O(n² + m)
 ```
  
 > **Worst case: the kind of input that causes it, and the justification:**
 ```
-[YOUR ANSWER HERE]
+Occurs when the graph is dense ertices have many neighbors.
 ```
  
 ### 2.2 Greedy Algorithm 2
