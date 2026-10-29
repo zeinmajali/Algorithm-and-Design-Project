@@ -72,7 +72,7 @@ Given an undirected graph G=(V,E) and must assign a color to every vertex so tha
 > What must an algorithm for this problem output, and what is being minimized or maximized?
  
 ```
-- Array color[] of size V(number of vertices), where color[i] holds the integer color assigned to vertex i.
+- Array c[] of size V(number of vertices), where c[i] holds the integer color assigned to vertex i.
 - List of colors used.
 - Integer k: number of colors used which should be as small as possible 
 ```
@@ -82,7 +82,10 @@ Given an undirected graph G=(V,E) and must assign a color to every vertex so tha
 > What conditions must a solution satisfy to be valid?
  
 ```
-[YOUR ANSWER HERE]
+- 1≤n≤1000
+- 0≤m≤n(n-1)/2: no loops, no multiple edges and undirected complete graph
+- Every vertex must receive exactly one color
+- For every edge (u,v): c(u)≠c(v)
 ```
  
 ### 1.5 Example
@@ -92,7 +95,8 @@ Given an undirected graph G=(V,E) and must assign a color to every vertex so tha
 > Give one small instance of the problem.
  
 ```
-[YOUR ANSWER HERE]
+- n=5, vertices A, B, C, D, E (A=0...E=4)
+- Edges: A-B, A-C, B-C, B-D, C-D, D-E 
 ```
  
 #### 1.5.2 A Valid Solution
@@ -101,12 +105,13 @@ Given an undirected graph G=(V,E) and must assign a color to every vertex so tha
  
 > **Valid solution and explanation:**
 ```
-[YOUR ANSWER HERE]
+A=1, B=2, C=3, D=4, E=1
+Every edge has different endpoint color
 ```
  
 > **Value of this solution (a number only):**
 ```
-[YOUR ANSWER HERE]
+4
 ```
  
 #### 1.5.3 An Optimal Solution
@@ -115,12 +120,13 @@ Given an undirected graph G=(V,E) and must assign a color to every vertex so tha
  
 > **Optimal solution and explanation:**
 ```
-[YOUR ANSWER HERE]
+A=1, B=2, C=3, D=1, E=2
+A, B, C form a triangle, so at least 3 colors are needed. The coloring above uses 3 and is valid: D is adjacent only to B(2), C(3) and E, so it can reuses color 1. E is adjacent to D(1), so it takes color 2.
 ```
  
 > **Optimal value (a number only):**
 ```
-[YOUR ANSWER HERE]
+3
 ```
  
 ### 1.6 Applications
@@ -128,7 +134,14 @@ Given an undirected graph G=(V,E) and must assign a color to every vertex so tha
 > Briefly discuss common applications or real-world uses of the problem.
  
 ```
-[YOUR ANSWER HERE]
+1. University Exam Scheduling:
+  Suppose a university has five courses. Some students take more than one of these courses. If two courses share students, their exam cannot be held at the same time. The goal is to schedule every course while minimizing the total number of time slots.
+
+2. Map coloring:
+  Giving neighboring regions different colors.
+
+3. Wireless frequency assignment:
+  A voiding interference between nearby transmitters
 ```
  
 ### 1.7 Resources
@@ -136,7 +149,7 @@ Given an undirected graph G=(V,E) and must assign a color to every vertex so tha
 > List here the resources you used to learn about the problem. Include the URLs of the web pages, books, and videos you referred to.
  
 ```
-[YOUR ANSWER HERE]
+- https://www.researchgate.net/publication/221434585_Applications_of_Graph_Coloring
 ```
  
 ---
