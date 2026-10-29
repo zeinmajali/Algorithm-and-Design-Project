@@ -33,13 +33,13 @@
  
 | Field | Value |
 |---|---|
-| Team number | [YOUR ANSWER HERE] |
-| Problem (general name) | [YOUR ANSWER HERE] |
+| Team number | 48 |
+| Problem (general name) | Graph Coloring |
  
 | Member | Name | Student ID |
 |---|---|---|
-| 1 | [YOUR ANSWER HERE] | [YOUR ANSWER HERE] |
-| 2 | [YOUR ANSWER HERE] | [YOUR ANSWER HERE] |
+| 1 | Krystl Ammary | 20230542 |
+| 2 | Zein Al-Majali | 20230185 |
 | 3 | [YOUR ANSWER HERE] | [YOUR ANSWER HERE] |
 | 4 | [YOUR ANSWER HERE] | [YOUR ANSWER HERE] |
  
@@ -51,7 +51,11 @@
 > What is the problem? Give a clear and concise description in your own words.
  
 ```
-[YOUR ANSWER HERE]
+Given an undirected graph G=(V,E) and must assign a color to every vertex so that:
+    \begin{enumerate}
+       1. Every vertex has a color.
+       2. Adjacent vertices must have different colors.
+       3. The total number of distinct colors used must be as small as possible.
 ```
  
 ### 1.2 Input
