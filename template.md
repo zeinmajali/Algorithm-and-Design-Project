@@ -52,7 +52,6 @@
  
 ```
 Given an undirected graph G=(V,E) and must assign a color to every vertex so that:
-    \begin{enumerate}
        1. Every vertex has a color.
        2. Adjacent vertices must have different colors.
        3. The total number of distinct colors used must be as small as possible.
@@ -63,7 +62,9 @@ Given an undirected graph G=(V,E) and must assign a color to every vertex so tha
 > What are the inputs to the problem? List each one with a short description.
  
 ```
-[YOUR ANSWER HERE]
+Integer n: the number of vertices, labeled 0,1,...,n-1.
+Integer m: number of edges.
+List of m edges: each given as a pair (u,v) with u≠v, meaning vertices u and v are connected with undirected edge.
 ```
  
 ### 1.3 Required Output
