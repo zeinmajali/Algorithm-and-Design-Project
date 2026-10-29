@@ -62,9 +62,9 @@ Given an undirected graph G=(V,E) and must assign a color to every vertex so tha
 > What are the inputs to the problem? List each one with a short description.
  
 ```
-* Integer **n**: the number of vertices, labeled 0,1,...,n-1.
-* Integer **m**: number of edges.
-* List of **m** edges: each given as a pair (u,v) with u≠v, meaning vertices u and v are connected with undirected edge.
+- Integer n: the number of vertices, labeled 0,1,...,n-1.
+- Integer m: number of edges.
+- List of m edges: each given as a pair (u,v) with u≠v, meaning vertices u and v are connected with undirected edge.
 ```
  
 ### 1.3 Required Output
@@ -72,8 +72,9 @@ Given an undirected graph G=(V,E) and must assign a color to every vertex so tha
 > What must an algorithm for this problem output, and what is being minimized or maximized?
  
 ```
-Array color[] of size V(number of vertices), where color[i] holds the integer color assigned to vertex i.
-List of colors used.
+- Array color[] of size V(number of vertices), where color[i] holds the integer color assigned to vertex i.
+- List of colors used.
+- Integer k: number of colors used which should be as small as possible 
 ```
  
 ### 1.4 Constraints
