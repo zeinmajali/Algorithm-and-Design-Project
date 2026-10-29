@@ -72,7 +72,8 @@ Given an undirected graph G=(V,E) and must assign a color to every vertex so tha
 > What must an algorithm for this problem output, and what is being minimized or maximized?
  
 ```
-[YOUR ANSWER HERE]
+Array color[] of size V(number of vertices), where color[i] holds the integer color assigned to vertex i.
+List of colors used.
 ```
  
 ### 1.4 Constraints
