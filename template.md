@@ -1,4 +1,4 @@
-# Project Report
+ # Project Report
  
 > **How to use this template**
 >
@@ -291,12 +291,19 @@ Occurs when the graph is dense ertices have many neighbors.
  
 > **Strategy name:**
 ```
-[YOUR ANSWER HERE]
+Welsh-Powell
 ```
  
 > **Strategy description:**
 ```
-[YOUR ANSWER HERE]
+Welsh-Powell is a greedy graph coloring algorithm that colors the graph one color class at a time, always starting with the vertices that have the most neighbors. The idea is that high-degree vertices have the most conflicts, so they are the hardest to place and should be colored while many colors are still available.
+
+1- calculate degree of each vertex
+2- sort all vertices from highest to lowest degree (ties can be sorted using other methods such as alphabetical order)
+3- set an initial color c=1.
+4- Go through the sorted list one-by-one, color with c each uncolored vertex that is not adjacent to a vertex that is already colored c.
+5- once you finish the list, repeat step 4 with a new c=c+1.
+6- stop the algorithm ones all the vertices are colored. 
 ```
  
 #### 2.2.2 Example
