@@ -164,7 +164,7 @@ A, B, C form a triangle, so at least 3 colors are needed. The coloring above use
  
 > **Strategy name:**
 ```
-Graph Coloring
+Greedy Coloring
 ```
  
 > **Strategy description:**
@@ -185,22 +185,32 @@ Step 6: Continue until every vertex has been colored.
  
 > **Example instance:**
 ```
-[YOUR ANSWER HERE]
+Vertices: A, B, C, D, E
+Edges: A-B, A-C, C-B, B-D, C-D, D-E
 ```
  
 > **Optimal solution found by the algorithm:**
 ```
-[YOUR ANSWER HERE]
+A=1
+B=2
+C=3
+D=1
+E=2
 ```
  
 > **Value of this solution (a number only):**
 ```
-[YOUR ANSWER HERE]
+3
 ```
  
 > **Step-by-step trace of the algorithm:**
 ```
-[YOUR ANSWER HERE]
+STEP 1: A  no colored neighbors           -> A = 1
+STEP 2: B  colored neighbors: A(1)        -> B = 2
+STEP 3: C  colored neighbors: A(1), (B)   -> C = 3
+STEP 4: D  colored neighbors: B(2), C(3)  -> B = 2
+STEP 5: E  colored neighbors: D(1)        -> B = 2
+RESULT: 3 colors  A, B, C form a triangle, so 3 is optimal
 ```
  
 #### 2.1.3 Counterexample
@@ -209,32 +219,45 @@ Step 6: Continue until every vertex has been colored.
  
 > **Counterexample instance:**
 ```
-[YOUR ANSWER HERE]
+Vertices: A, B, C, D
+Edges: A-B, B-C, C-D
 ```
  
 > **Solution found by the algorithm:**
 ```
-[YOUR ANSWER HERE]
+A=1
+B=2
+C=3
+D=1
 ```
  
 > **Value of the algorithm's solution (a number only):**
 ```
-[YOUR ANSWER HERE]
+3
 ```
  
 > **Optimal solution:**
 ```
-[YOUR ANSWER HERE]
+A=1
+B=2
+C=1
+D=2
 ```
  
 > **Optimal value (a number only):**
 ```
-[YOUR ANSWER HERE]
+2
 ```
  
 > **Step-by-step trace of the algorithm:**
 ```
-[YOUR ANSWER HERE]
+ORDER: A, B, D, C
+STEP 1: A  no colored neighbors                           -> A = 1
+STEP 2: D  neighbor c is uncolored                        -> D = 1
+STEP 3: B  colored neighbors: A(1)                        -> A = 2
+STEP 4: C  colored neighbors: B(2), D(1) colors 1, 2 used -> A = 3
+RESULT: 3 colors, but the path is bipartite, so 2 is enough
+The bad order let the two endpoints share color 1, which then blocked both colors for C.
 ```
  
 #### 2.1.4 Algorithm Pseudocode
