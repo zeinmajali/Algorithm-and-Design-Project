@@ -335,22 +335,28 @@ Welsh-Powell is a greedy graph coloring algorithm that colors the graph one colo
  
 > **Example instance:**
 ```
-[YOUR ANSWER HERE]
+vertices: A, B, C, D, E
+Edges: A-B, A-C, B-C, B-D, C-D, D-E   6-edges
 ```
  
 > **Optimal solution found by the algorithm:**
 ```
-[YOUR ANSWER HERE]
+color1:{B,E}
+color2:{C}
+color3:{A,D}
 ```
  
 > **Value of this solution (a number only):**
 ```
-[YOUR ANSWER HERE]
+3
 ```
  
 > **Step-by-step trace of the algorithm:**
 ```
-[YOUR ANSWER HERE]
+1. Calculate the degrees of all the verticies {B, C, D, A, E}
+2. Color B the color1, since C,D and A are adjacent to B we do not color them and color E with color1.
+3. Color C color2, since A and D are adjacent to C we do not color them.
+4. Moving to the next vertex A we color it color3 and since D is not ajacent to A we also color it the same color.
 ```
  
 #### 2.2.3 Counterexample
