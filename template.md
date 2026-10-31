@@ -335,7 +335,7 @@ Welsh-Powell is a greedy graph coloring algorithm that colors the graph one colo
  
 > **Example instance:**
 ```
-vertices: A, B, C, D, E
+Vertices: A, B, C, D, E
 Edges: A-B, A-C, B-C, B-D, C-D, D-E   6-edges
 ```
  
@@ -353,7 +353,7 @@ color3:{A,D}
  
 > **Step-by-step trace of the algorithm:**
 ```
-1. Calculate the degrees of all the verticies {B, C, D, A, E}
+1. Calculate the degrees of all the vertices {B, C, D, A, E}
 2. Color B the color1, since C,D and A are adjacent to B we do not color them and color E with color1.
 3. Color C color2, since A and D are adjacent to C we do not color them.
 4. Moving to the next vertex A we color it color3 and since D is not ajacent to A we also color it the same color.
@@ -365,32 +365,39 @@ color3:{A,D}
  
 > **Counterexample instance:**
 ```
-[YOUR ANSWER HERE]
+Vertices: A, B, C, D, E, F
+Edges: A-D, A-F, B-C, B-E, C-F, D-E   6-edges 
 ```
  
 > **Solution found by the algorithm:**
 ```
-[YOUR ANSWER HERE]
+color1: {A,B}
+color2: {C,D}
+color3: {E,F}
 ```
  
 > **Value of the algorithm's solution (a number only):**
 ```
-[YOUR ANSWER HERE]
+3
 ```
  
 > **Optimal solution:**
 ```
-[YOUR ANSWER HERE]
+color1: {A,C,E}
+color2: {B,D,F}
 ```
  
 > **Optimal value (a number only):**
 ```
-[YOUR ANSWER HERE]
+2
 ```
  
 > **Step-by-step trace of the algorithm:**
 ```
-[YOUR ANSWER HERE]
+1. Calculate the degrees of all vertices {A, B, C, D, E, F}
+2. Starting with A color it color1, since B is not adjacent also color it color 1 then skip the rest since they are adjacent to A and B.
+3. C is given color2, since D is not adjacent we also give it the same color  and skip the rest as they are adjacent or already colored.
+4. Color E and F color3 as they are  not adjacent to each other.
 ```
  
 #### 2.2.4 Algorithm Pseudocode
