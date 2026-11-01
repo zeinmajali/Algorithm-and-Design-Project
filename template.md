@@ -40,8 +40,8 @@
 |---|---|---|
 | 1 | Krystl Ammary | 20230542 |
 | 2 | Zein Al-Majali | 20230185 |
-| 3 | [YOUR ANSWER HERE] | [YOUR ANSWER HERE] |
-| 4 | [YOUR ANSWER HERE] | [YOUR ANSWER HERE] |
+| 3 | Thafer Alkilani  | 20240369 |
+| 4 | Ayman Karaki | 20210279 |
  
  
 ## `PHASE 1: Problem Definition`
