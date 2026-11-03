@@ -422,22 +422,22 @@ color2: {B,D,F}
 
 > **Best-case complexity (Big-O expression only, for example `O(n log n)`):**
 ```
-[YOUR ANSWER HERE]
+O(n log n)
 ```
  
 > **Best case: the kind of input that causes it, and the justification:**
 ```
-[YOUR ANSWER HERE]
+When the graph has no edges.
 ```
  
 > **Worst-case complexity (Big-O expression only, for example `O(n log n)`):**
 ```
-[YOUR ANSWER HERE]
+O(n^2)
 ```
  
 > **Worst case: the kind of input that causes it, and the justification:**
 ```
-[YOUR ANSWER HERE]
+A densely connected graph.
 ```
  
 ### 2.3 Greedy Algorithm 3
