@@ -405,7 +405,28 @@ color2: {B,D,F}
 > **Warning.** Your answer must not contain any line that starts with three backticks. If you copy code from a website or an AI tool, delete such lines (they usually appear just before and just after the code).
  
 ```
-[YOUR ANSWER HERE]
+WELSH-POWELL(G = (V, E)):
+    n <- |V|
+    for each vertex v in V:
+        deg[v] <- number of neighbors of v
+        color[v] <- 0                      
+
+    order <- vertices of V sorted by deg descending 
+
+    c <- 0
+    uncolored <- n
+    while uncolored > 0:
+        c <- c + 1
+        for each vertex v in V:
+            blocked[v] <- false           
+        for each vertex v in order:
+            if color[v] = 0 and blocked[v] = false:
+                color[v] <- c
+                uncolored <- uncolored - 1
+                for each neighbor u of v:
+                    blocked[u] <- true
+    return color, c                        
+
 ```
  
 #### 2.2.5 Algorithm Implementation
@@ -427,7 +448,7 @@ O(n log n)
  
 > **Best case: the kind of input that causes it, and the justification:**
 ```
-When the graph has no edges.
+When the graph has no edges or a graph that only needs one color.
 ```
  
 > **Worst-case complexity (Big-O expression only, for example `O(n log n)`):**
@@ -437,7 +458,7 @@ O(n^2)
  
 > **Worst case: the kind of input that causes it, and the justification:**
 ```
-A densely connected graph.
+A densely graph, were almost every vertex would have a different color. 
 ```
  
 ### 2.3 Greedy Algorithm 3
