@@ -448,7 +448,7 @@ O(n log n)
  
 > **Best case: the kind of input that causes it, and the justification:**
 ```
-When the graph has no edges or a graph that only needs one color.
+Occurs when the graph has no edges or only needs one color.
 ```
  
 > **Worst-case complexity (Big-O expression only, for example `O(n log n)`):**
@@ -458,7 +458,7 @@ O(n^2)
  
 > **Worst case: the kind of input that causes it, and the justification:**
 ```
-A densely graph, were almost every vertex would have a different color. 
+Occurs when a graph is dense or when every vertex has a different color.
 ```
  
 ### 2.3 Greedy Algorithm 3
