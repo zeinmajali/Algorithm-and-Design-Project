@@ -495,7 +495,7 @@ Edges: (A,C), (A,D), (B,C), (B,D). [complete bipartite graph]
  
 > **Optimal solution found by the algorithm:**
 ```
-2
+2 colors
 ```
  
 > **Value of this solution (a number only):**
@@ -509,13 +509,13 @@ Edges: (A,C), (A,D), (B,C), (B,D). [complete bipartite graph]
 2- A is colored 1
 3- Update saturation (C and D both see A, so they have saturation 1)
 4- Next iteration; C and D both have the highest saturation and the same degree, so C is picked alphabetically.
-5- C is colored 2; A already has 1
+5- C is colored 2, since it is adjacent to A(Color 1)
 6- Update saturation (B is 1 since it sees C, but D stays 1)
 7- Next iteration; B and D both have the highest saturation and the same degree, so B is picked alphabetically.
 8- B is colored 1, since it is the lowest index
 9- Update saturation (Nothing changes, D stays 1)
 10- Next iteration; D is the only option left
-11- D is colored 2, since B is already 1
+11- D is colored 2, since it is adjacent to B(Color 1)
 ```
  
 #### 2.3.3 Counterexample
@@ -524,32 +524,52 @@ Edges: (A,C), (A,D), (B,C), (B,D). [complete bipartite graph]
  
 > **Counterexample instance:**
 ```
-[YOUR ANSWER HERE]
+Vertices: A,B,C,D,E,F,G
+Edges: (A,B),(A,D),(A,F),(B,C),(B,E),(B,G),(C,E),(C,G),(D,F),(D,G),(E,F)
 ```
  
 > **Solution found by the algorithm:**
 ```
-[YOUR ANSWER HERE]
+4 colors
 ```
  
 > **Value of the algorithm's solution (a number only):**
 ```
-[YOUR ANSWER HERE]
+4
 ```
  
 > **Optimal solution:**
 ```
-[YOUR ANSWER HERE]
+3 colors
 ```
  
 > **Optimal value (a number only):**
 ```
-[YOUR ANSWER HERE]
+3
 ```
  
 > **Step-by-step trace of the algorithm:**
 ```
-[YOUR ANSWER HERE]
+1. Calculate the degree of all vertices. B has degree 4, while all other vertices have degree 3. Pick B.
+2. B is colored 1.
+3. Update saturation (A, C, E, and G all see B, so they have saturation 1).
+4. Next iteration; A, C, E, and G all have the highest saturation and the same degree, so A is picked alphabetically.
+5. A is colored 2, since it is adjacent to B (Color 1).
+6. Update saturation (D and F now have saturation 1 because they see A).
+7. Next iteration; C, E, and G have saturation 1, and D and F also have saturation 1. All have degree 3, so C is picked alphabetically.
+8. C is colored 2, since B already has Color 1.
+9. Update saturation (E and G now have saturation 2 because they see both B and C).
+10. Next iteration; E and G have the highest saturation (2) and the same degree, so E is picked alphabetically.
+11. E is colored 3, since it is adjacent to B (Color 1) and C (Color 2).
+12. Update saturation (F now has saturation 2 because it sees A (Color 2) and E (Color 3)).
+13. Next iteration; F and G both have the highest saturation (2) and the same degree, so F is picked alphabetically.
+14. F is colored 1, since its colored neighbors have Colors 2 and 3.
+15. Update saturation (D now has saturation 2 because it sees A (Color 2) and F (Color 1)).
+16. Next iteration; D and G both have the highest saturation (2) and the same degree, so D is picked alphabetically.
+17. D is colored 3, since its colored neighbors have Colors 1 and 2.
+18. Update saturation (G now has saturation 3 because it sees B (Color 1), C (Color 2), and D (Color 3)).
+19. Next iteration; G is the only remaining vertex.
+20. G is colored 4, since its neighbors already use Colors 1, 2, and 3.
 ```
  
 #### 2.3.4 Algorithm Pseudocode
@@ -557,7 +577,29 @@ Edges: (A,C), (A,D), (B,C), (B,D). [complete bipartite graph]
 > **Warning.** Your answer must not contain any line that starts with three backticks. If you copy code from a website or an AI tool, delete such lines (they usually appear just before and just after the code).
  
 ```
-[YOUR ANSWER HERE]
+DSatur(G):
+    for each vertex v in Graph:
+        color[v] <- 0
+        saturation[v] <- 0
+        degree[v] <- number of neighbors of v
+
+    while there are uncolored vertices:
+        v <- uncolored vertex with the highest saturation
+        if tie:
+            choose the vertex with the highest degree
+        if tie:
+            choose alphabetically
+
+        c <- 1
+        while c is used by a colored neighbor of v:
+            c <- c + 1
+
+        color[v] <- c
+
+        for each uncolored neighbor u of v:
+            saturation[u] = number of distinct colors among colored neighbors of u
+    color <- max color among vertices 
+    return color
 ```
  
 #### 2.3.5 Algorithm Implementation
@@ -574,22 +616,22 @@ Edges: (A,C), (A,D), (B,C), (B,D). [complete bipartite graph]
  
 > **Best-case complexity (Big-O expression only, for example `O(n log n)`):**
 ```
-[YOUR ANSWER HERE]
+O(nlog(n) + m)
 ```
  
 > **Best case: the kind of input that causes it, and the justification:**
 ```
-[YOUR ANSWER HERE]
+Highly sparse graphs, where few saturation updates occur per scan, so very few priority updates.
 ```
  
 > **Worst-case complexity (Big-O expression only, for example `O(n log n)`):**
 ```
-[YOUR ANSWER HERE]
+O(mlog(n)), where m is approximately equal to n^2
 ```
  
 > **Worst case: the kind of input that causes it, and the justification:**
 ```
-[YOUR ANSWER HERE]
+A highly dense graph with many saturation updates per scan, where every evaluation results in a priority update.
 ```
  
 ## `PHASE 3: Exact Solutions`
