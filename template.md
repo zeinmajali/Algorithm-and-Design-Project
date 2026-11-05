@@ -469,12 +469,18 @@ Occurs when a graph is dense or when every vertex has a different color.
  
 > **Strategy name:**
 ```
-[YOUR ANSWER HERE]
+DSatur Algorithm
 ```
  
 > **Strategy description:**
 ```
-[YOUR ANSWER HERE]
+The DSatur algorithm (Degree of Saturation) is a heuristic (next vertex is picked every iteration) graph coloring algorithm. With the twist of prioritizing saturation of vertices to pick the next vertex each iteration.
+
+1. Saturation Degree: The saturation degree of an uncolored vertex is the number of different colors already used by its already-colored neighboring vertices.
+2. Vertex Selection: At each step, DSatur chooses the uncolored vertex with the highest saturation degree.
+3. Tie-Breaking: If a tie occurs (two or more vertices have the same maximum saturation degree), the algorithm breaks the tie by choosing the vertex with the highest overall degree (the most uncolored/total neighbors). NOTE: In the first iteration, where there are no colored vertices, it simply picks one of the highest-degree vertices.
+4. Color Assignment: It assigns the lowest-indexed color available that has not been used by any of the vertex's immediate neighbors.
+5. Iteration: It repeats this process until all vertices in the graph are colored.
 ```
  
 #### 2.3.2 Example
@@ -483,22 +489,33 @@ Occurs when a graph is dense or when every vertex has a different color.
  
 > **Example instance:**
 ```
-[YOUR ANSWER HERE]
+Vertices: A, B, C, D
+Edges: (A,C), (A,D), (B,C), (B,D). [complete bipartite graph]
 ```
  
 > **Optimal solution found by the algorithm:**
 ```
-[YOUR ANSWER HERE]
+2
 ```
  
 > **Value of this solution (a number only):**
 ```
-[YOUR ANSWER HERE]
+2
 ```
  
 > **Step-by-step trace of the algorithm:**
 ```
-[YOUR ANSWER HERE]
+1- Calculate the degree of all vertices and pick one of the highest. (They all have equal degree, so I picked vertex A alphabetically)
+2- A is colored 1
+3- Update saturation (C and D both see A, so they have saturation 1)
+4- Next iteration; C and D both have the highest saturation and the same degree, so C is picked alphabetically.
+5- C is colored 2; A already has 1
+6- Update saturation (B is 1 since it sees C, but D stays 1)
+7- Next iteration; B and D both have the highest saturation and the same degree, so B is picked alphabetically.
+8- B is colored 1, since it is the lowest index
+9- Update saturation (Nothing changes, D stays 1)
+10- Next iteration; D is the only option left
+11- D is colored 2, since B is already 1
 ```
  
 #### 2.3.3 Counterexample
